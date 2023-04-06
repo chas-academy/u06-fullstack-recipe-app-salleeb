@@ -1,1 +1,14 @@
-<p>recipe-api works!</p>
+<input type="text" [(ngModel)]="searchquery">
+
+<button type="button" (click)="getRecipes()">Get recipes!</button>
+
+<article *ngFor="let recipe of allRecipes">
+  <h2>{{recipe.label}}</h2>
+  <img [src]="recipe.image" [alt]="recipe.label">
+  <p>Ingredient:</p>
+  <ul>
+    <li *ngFor="let ingredient of recipe.ingredientLines">
+      {{ingredient}}
+    </li>
+  </ul>
+</article>
