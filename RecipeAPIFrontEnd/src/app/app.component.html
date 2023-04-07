@@ -1,4 +1,27 @@
-<div class="container-fluid ps-md-0">
+<!-- <h1>{{ "Welcome!" | uppercase }}</h1>
+<article>
+  <h2>{{ "Article n.o.1" | uppercase }}</h2>
+  <p>
+    Hello there!
+  </p>
+  <p>{{ today | date:"medium" }}</p>
+</article>
+
+<article>
+  <h2>{{ "User no. 2" | uppercase }}</h2>
+  <button type="button" (click)="login()">Login</button>
+  <button type="button" (click)="getUser()">Get user</button>
+  <ul>
+    <li>User name: {{user2.name}}</li>
+    <li>User name: {{user2.email}}</li>
+  </ul>
+  <p>{{ today | date:"medium" }}</p>
+</article> -->
+
+<app-recipe-api></app-recipe-api>
+
+
+<!-- <div class="container-fluid ps-md-0">
   <div class="row g-0">
     <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
     <div class="col-md-8 col-lg-6">
@@ -8,7 +31,7 @@
             <div class="col-md-9 col-lg-8 mx-auto">
               <h3 class="login-heading mb-4">Welcome back!</h3>
 
-              <!-- Sign In Form -->
+              Sign In Form
               <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
                 <div class="form-floating mb-3">
                   <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"  id="inputEmail4">
@@ -55,4 +78,4 @@
     </div>
   </div>
 </div>
-<app-recipe-api></app-recipe-api>
+<app-recipe-api></app-recipe-api> -->
