@@ -31,11 +31,15 @@ export class UserService {
       })
   }
 
-  getUser2() {
-    console.log(localStorage.getItem("token"));
-    this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'Bearer ' + localStorage.getItem("token"));
-    return this.http.get<User[]>(this.configUrl + 'getuser/2', this.httpOptions).pipe(catchError(this.handleError));
-  }
+  // signupUser(user: User) {
+  //   return this.http.post(this.configUrl + "signup", user);
+  // }
+
+  // getUser2() {
+  //   console.log(localStorage.getItem("token"));
+  //   this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'Bearer ' + localStorage.getItem("token"));
+  //   return this.http.get<User[]>(this.configUrl + 'getuser/2', this.httpOptions).pipe(catchError(this.handleError));
+  // }
 
   // logoutUser(user: User) {
   //   this.http.post<any>(this.configUrl + "logout", user, this.httpOptions)

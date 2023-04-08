@@ -8,40 +8,7 @@ import { RecipeService } from './recipe-api/recipe.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  today: number = Date.now();
-
-  me = {
-    id: 0,
-    name: "",
-    email: "evolkman@example.com",
-    password: "password",
-  }
-
-  user2 = {
-    id: 0,
-    name: "",
-    email: "",
-    password: ""
-  }
-
-  constructor(private userService: UserService){
-    //userService.loginUser(this.me)
-  }
-
-  login(){
-    this.userService.loginUser(this.me);
-  }
-
-  // logout(){
-  //   this.userService.logoutUser(this.me);
-  // }
-
-  getUser(){
-    this.userService.getUser2().subscribe(res => {
-      console.log(res[0]);
-      this.user2 = res[0];
-    })
-  }
+  // today: number = Date.now();
 }
 
 

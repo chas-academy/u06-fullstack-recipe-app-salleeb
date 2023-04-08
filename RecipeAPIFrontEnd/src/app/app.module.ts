@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { RecipeAPIDetailComponent } from './recipe-apidetail/recipe-apidetail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ListsComponent } from './lists/lists.component';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,9 @@ import { ListsComponent } from './lists/lists.component';
     RecipeAPIComponent,
     RecipeAPIDetailComponent,
     NotFoundComponent,
-    ListsComponent
+    ListsComponent,
+    LoginComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,8 @@ import { ListsComponent } from './lists/lists.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
 
 
 

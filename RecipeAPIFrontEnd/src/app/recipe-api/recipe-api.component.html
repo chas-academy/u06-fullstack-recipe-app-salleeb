@@ -1,13 +1,10 @@
 <input type="text" placeholder="Search.." [(ngModel)]="searchquery">
-<br><br>
-
 
 <label for="mealTypes">Choose a meal type:</label>  <!-- Fungerar ej!-->
 <select id="mealTypes">
   <option value="breakfast" *ngFor="let recipe of allRecipes">{{recipe.mealType}}</option>
 </select>
 
-<br><br>
 <button type="button" (click)="getRecipes()">Get recipes!</button>
 
 <!-- <article *ngFor="let recipe of allRecipes">
