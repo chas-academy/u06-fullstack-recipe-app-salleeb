@@ -32,6 +32,10 @@ export class AppComponent {
     this.userService.loginUser(this.me);
   }
 
+  // logout(){
+  //   this.userService.logoutUser(this.me);
+  // }
+
   getUser(){
     this.userService.getUser2().subscribe(res => {
       console.log(res[0]);

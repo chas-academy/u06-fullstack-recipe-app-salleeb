@@ -1,7 +1,16 @@
-<input type="text" [(ngModel)]="searchquery">
+<input type="text" placeholder="Search.." [(ngModel)]="searchquery">
+<br><br>
+
+
+<label for="mealTypes">Choose a meal type:</label>  <!-- Fungerar ej!-->
+<select id="mealTypes">
+  <option value="breakfast" *ngFor="let recipe of allRecipes">{{recipe.mealType}}</option>
+</select>
+
+<br><br>
 <button type="button" (click)="getRecipes()">Get recipes!</button>
 
-<article *ngFor="let recipe of allRecipes">
+<!-- <article *ngFor="let recipe of allRecipes">
   <h2>{{recipe.label}}</h2>
   <img [src]="recipe.image" [alt]="recipe.label">
   <p>Ingredient:</p>
@@ -10,4 +19,12 @@
       {{ingredient}}
     </li>
   </ul>
-</article>
+</article> -->
+
+
+<div class="flex w-full flex-wrap"> <!-- Fixa länk! -->
+      <a href="" class="h-auto max-w-full w-60" *ngFor="let recipe of allRecipes">
+      <img class="rounded-lg" [src]="recipe.image" [alt]="recipe.label">
+      <h2>{{recipe.label}}</h2>
+      </a>
+</div>

@@ -18,6 +18,15 @@
   <p>{{ today | date:"medium" }}</p>
 </article> -->
 
+<form action="" method="post" id="form">
+  <label for="email">Email:</label>
+  <input type="text" id="email" name="email"><br><br>
+  <label for="password">Password:</label>
+  <input type="text" id="password" name="password">
+</form>
+<button type="submit" form="form" (click)="login()">Login</button><br><br>
+<!-- <button type="submit" (click)="logout()">Logout</button> -->
+
 <app-recipe-api></app-recipe-api>
 
 

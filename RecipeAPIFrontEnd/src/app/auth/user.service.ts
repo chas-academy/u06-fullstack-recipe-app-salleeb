@@ -37,6 +37,22 @@ export class UserService {
     return this.http.get<User[]>(this.configUrl + 'getuser/2', this.httpOptions).pipe(catchError(this.handleError));
   }
 
+  // logoutUser(user: User) {
+  //   this.http.post<any>(this.configUrl + "logout", user, this.httpOptions)
+  //     .pipe(catchError(this.handleError))
+  //     .subscribe(res => {
+  //       localStorage.removeItem("token", res.token);
+  //     })
+  // }
+
+  // logoutUser(user: User): Observable<unknown> { // Fungerar ej!
+  //   const url = this.configUrl + "login"; // DELETE api/heroes/42
+  //   return this.http.delete(url, this.httpOptions)
+  //     .pipe(
+  //       catchError(this.handleError)
+  //     );
+  // }
+
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {
       // A client-side or network error occurred. Handle it accordingly.
