@@ -20,7 +20,58 @@
 
 <a routerLink="/" routerLinkActive="active">Home</a>
 <a routerLink="/login" routerLinkActive="active">Login</a>
-<a routerLink="/signup" routerLinkActive="active">Signup</a>
+<a routerLink="/register" routerLinkActive="active">Signup</a>
+<br><br>
+<router-outlet></router-outlet>
+
+<!-- <form [formGroup]="form" (ngSubmit)="submitForm()">
+  <div>
+    <label for="name">
+      Name
+    </label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label for="email">
+      Email
+    </label>
+    <input id="email" type="text" formControlName="email">
+  </div>
+
+  <div>
+    <label for="password">
+        Password
+    </label>
+    <input id="password" type="text" formControlName="password">
+  </div>
+
+  <button class="button" type="submit">Send</button>
+</form> -->
+
+<!-- <form [formGroup]="form" (ngSubmit)="signup()">
+  <div>
+    <label for="name">
+      Name
+    </label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label for="email">
+      Email
+    </label>
+    <input id="email" type="text" formControlName="email">
+  </div>
+
+  <div>
+    <label for="password">
+        Password
+    </label>
+    <input id="password" type="text" formControlName="password">
+  </div>
+
+  <button class="button" type="submit">Send</button>
+</form> -->
 
 <!-- <app-recipe-api></app-recipe-api> -->
-<router-outlet></router-outlet>

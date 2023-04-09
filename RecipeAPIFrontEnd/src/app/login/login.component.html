@@ -1,10 +1,52 @@
-<form action="" method="post" id="form">
+<!-- <form action="" method="post">
+  <label for="email">Email</label><br>
+  <input type="text" id="email"><br>
+  <label for="password">Password</label><br>
+  <input type="text" id="password"><br>
+  <button type="button" (click)="login()">Login</button>
+</form> -->
+
+<form #signupForm="ngForm" (ngSubmit)="login()">
+  <label for="email">Email</label><br>
+  <input type="text" name="email" ngModel><br>
+  <label for="password">Password</label><br>
+  <input type="text" name="password" ngModel><br>
+  <input type="submit" value="Register">
+</form>
+
+<!-- <form [formGroup]="me" (ngSubmit)="login()">
+  <div>
+    <label for="name">
+      Name
+    </label>
+    <input id="name" type="text" formControlName="name">
+  </div>
+
+  <div>
+    <label for="email">
+      Email
+    </label>
+    <input id="email" type="text" formControlName="email">
+  </div>
+
+  <div>
+    <label for="password">
+        Password
+    </label>
+    <input id="password" type="text" formControlName="password">
+  </div>
+
+  <button type="button" (click)="login()">Login</button> -->
+  <!-- <button class="button" type="submit">Send</button> -->
+<!-- </form> -->
+
+<!-- <form action="" method="post" id="form">
     <label for="email">Email:</label>
     <input type="text" id="email" name="email"><br><br>
     <label for="password">Password:</label>
     <input type="text" id="password" name="password">
-  </form>
-  <button type="submit" form="form" (click)="login()">Login</button><br><br>
+  </form> -->
+  <!-- <button type="submit" form="form" (click)="login()">Login</button><br><br> -->
   <!-- <button type="submit" (click)="logout()">Logout</button> -->
 
   <!-- <div class="container-fluid ps-md-0">

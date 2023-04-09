@@ -6,7 +6,9 @@ import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RecipeAPIComponent } from './recipe-api/recipe-api.component';
 import { RecipeAPIDetailComponent } from './recipe-apidetail/recipe-apidetail.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SignupComponent } from './signup/signup.component';
+
 
 const routes: Routes = [
   { path: '', component: RecipeAPIComponent },
@@ -15,7 +17,8 @@ const routes: Routes = [
   { path: 'recipes/:id', component: RecipeAPIDetailComponent  },
   // { path: 'lists/:id', component:  ListsComponent }, Använda??
   { path: 'login', component: LoginComponent  },
-  { path: 'signup', component: SignupComponent  },
+  { path: 'login/:id', component: LoginComponent  },
+  { path: 'register', component: SignupComponent  },
     // canActivate: [ExampleGuard],
 // { path: 'login/:id/logout', component: AppComponent },
   { path: '**', component: NotFoundComponent, data: { title : 'Oops' }  }

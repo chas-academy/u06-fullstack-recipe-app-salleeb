@@ -1,66 +1,52 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
+import { FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../auth/user.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-signup',
-  templateUrl: './signup.component.html',
-  styleUrls: ['./signup.component.scss'],
+    selector: 'app-signup',
+    templateUrl: './signup.component.html',
+    styleUrls: ['./signup.component.scss']
 })
-export class SignupComponent implements OnInit {
-  registerForm: FormGroup;
-  errors: any = null;
-  constructor(
-    public router: Router,
-    public fb: FormBuilder,
-    public userService: UserService
-  ) {
-    this.registerForm = this.fb.group({
-      name: [''],
-      email: [''],
-      password: [''],
-    });
+
+export class SignupComponent {
+
+  alert:boolean=false
+  register = new FormGroup({
+    name: new FormControl(''),
+    email: new FormControl(''),
+    password: new FormControl(''),
+    password_confirmation: new FormControl(''),
+  })
+
+  constructor(private userService: UserService) { }
+
+  ngOnInit(): void {
+
   }
-  ngOnInit() {}
-  onSubmit() {
-    this.userService.this.configUrl(this.registerForm.value).subscribe(res => {
-        console.log(res);
-      },
-      () => {
-        this.registerForm.reset();
-        this.router.navigate(['login']);
-      }
-    );
+
+  signup() {
+    // console.log(this.register.value)
+    this.userService.registerUser(this.register.value).subscribe((res) => {
+      console.log("res", res)
+    })
   }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.status === 0) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', error.error);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong.
+      console.error(
+        `Backend returned code ${error.status}, body was: `, error.error);
+    }
+    // Return an observable with a user-facing error message.
+    return throwError(() => new Error('Something bad happened; please try again later.'));
+  }
+
 }
-
-// import { Component } from '@angular/core';
-// import { UserService } from '../auth/user.service';
-
-// import { User } from '../user';
-
-// @Component({
-//   selector: 'app-signup',
-//   templateUrl: './signup.component.html',
-//   styleUrls: ['./signup.component.scss']
-// })
-// export class SignupComponent {
-//   user = {
-//     id: 0,
-//     name: "",
-//     email: "",
-//     password: ""
-//   }
-
-
-//   constructor(private userService: UserService){
-//   }
-
-//   signup(user: User){
-//     this.userService.signupUser(user).subscribe(res => {
-//     console.log(res);
-//     })
-//   }
-
-// }
