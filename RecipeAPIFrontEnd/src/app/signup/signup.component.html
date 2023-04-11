@@ -7,5 +7,10 @@
   <input type="password" name="password" formControlName="password"><br>
   <label for="confirmPassword">Confirm password</label><br>
   <input type="password" name="password_confirmation" formControlName="password_confirmation"><br>
-  <button type="submit">Send</button>
+  <button type="submit">Register</button>
 </form>
+
+<div>
+<p>Already have an account?</p>
+    <button [routerLink]="['/login']">Login</button>
+</div>

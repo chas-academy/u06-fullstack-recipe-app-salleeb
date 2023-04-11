@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/operators';
 
 import { FormControl, FormGroup } from '@angular/forms';
 import { UserService } from '../auth/user.service';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-signup',
@@ -14,7 +15,10 @@ import { UserService } from '../auth/user.service';
 
 export class SignupComponent {
 
+  message = "";
+
   alert:boolean=false
+  
   register = new FormGroup({
     name: new FormControl(''),
     email: new FormControl(''),
@@ -22,7 +26,7 @@ export class SignupComponent {
     password_confirmation: new FormControl(''),
   })
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
 
@@ -31,7 +35,9 @@ export class SignupComponent {
   signup() {
     // console.log(this.register.value)
     this.userService.registerUser(this.register.value).subscribe((res) => {
-      console.log("res", res)
+      console.log("res", res);
+      this.message = "Success!";
+      console.log(this.message);
     })
   }
 

@@ -14,7 +14,7 @@ const routes: Routes = [
   { path: '', component: RecipeAPIComponent },
     // redirectTo: '/products',
     // pathMatch: 'full'
-  { path: 'recipes/:id', component: RecipeAPIDetailComponent  },
+  { path: 'recipes/:id', component: RecipeAPIComponent  },
   // { path: 'lists/:id', component:  ListsComponent }, Använda??
   { path: 'login', component: LoginComponent  },
   { path: 'login/:id', component: LoginComponent  },

@@ -1,77 +1,8 @@
-<!-- <h1>{{ "Welcome!" | uppercase }}</h1>
-<article>
-  <h2>{{ "Article n.o.1" | uppercase }}</h2>
-  <p>
-    Hello there!
-  </p>
-  <p>{{ today | date:"medium" }}</p>
-</article>
-
-<article>
-  <h2>{{ "User no. 2" | uppercase }}</h2>
-  <button type="button" (click)="login()">Login</button>
-  <button type="button" (click)="getUser()">Get user</button>
-  <ul>
-    <li>User name: {{user2.name}}</li>
-    <li>User name: {{user2.email}}</li>
-  </ul>
-  <p>{{ today | date:"medium" }}</p>
-</article> -->
-
 <a routerLink="/" routerLinkActive="active">Home</a>
 <a routerLink="/login" routerLinkActive="active">Login</a>
 <a routerLink="/register" routerLinkActive="active">Signup</a>
+<a href="#" (click)="logout($event)">Logout</a>
 <br><br>
+
+<!-- <h1>{{user.name}}</h1> Fixa för när user loggar in! -->
 <router-outlet></router-outlet>
-
-<!-- <form [formGroup]="form" (ngSubmit)="submitForm()">
-  <div>
-    <label for="name">
-      Name
-    </label>
-    <input id="name" type="text" formControlName="name">
-  </div>
-
-  <div>
-    <label for="email">
-      Email
-    </label>
-    <input id="email" type="text" formControlName="email">
-  </div>
-
-  <div>
-    <label for="password">
-        Password
-    </label>
-    <input id="password" type="text" formControlName="password">
-  </div>
-
-  <button class="button" type="submit">Send</button>
-</form> -->
-
-<!-- <form [formGroup]="form" (ngSubmit)="signup()">
-  <div>
-    <label for="name">
-      Name
-    </label>
-    <input id="name" type="text" formControlName="name">
-  </div>
-
-  <div>
-    <label for="email">
-      Email
-    </label>
-    <input id="email" type="text" formControlName="email">
-  </div>
-
-  <div>
-    <label for="password">
-        Password
-    </label>
-    <input id="password" type="text" formControlName="password">
-  </div>
-
-  <button class="button" type="submit">Send</button>
-</form> -->
-
-<!-- <app-recipe-api></app-recipe-api> -->

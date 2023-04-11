@@ -1,109 +1,20 @@
-<!-- <form action="" method="post">
-  <label for="email">Email</label><br>
-  <input type="text" id="email"><br>
-  <label for="password">Password</label><br>
-  <input type="text" id="password"><br>
-  <button type="button" (click)="login()">Login</button>
-</form> -->
-
-<form #signupForm="ngForm" (ngSubmit)="login()">
+<!-- <form #signupForm="ngForm" (ngSubmit)="login()">
   <label for="email">Email</label><br>
   <input type="text" name="email" ngModel><br>
   <label for="password">Password</label><br>
   <input type="text" name="password" ngModel><br>
-  <input type="submit" value="Register">
+  <input type="submit" value="Login">
+</form> -->
+
+<form [formGroup]="loginForm" (ngSubmit)="login()"> <!-- (ngSubmit)="login()" -->
+  <label for="email">Email</label><br>
+  <input type="text" name="email" formControlName="email"><br>
+  <label for="password">Password</label><br>
+  <input type="password" name="password" formControlName="password"><br>
+  <button type="submit">Login</button>
 </form>
 
-<!-- <form [formGroup]="me" (ngSubmit)="login()">
-  <div>
-    <label for="name">
-      Name
-    </label>
-    <input id="name" type="text" formControlName="name">
+<div>
+  <p>Don't have an account?</p>
+      <button [routerLink]="['/register']">Sign up</button>
   </div>
-
-  <div>
-    <label for="email">
-      Email
-    </label>
-    <input id="email" type="text" formControlName="email">
-  </div>
-
-  <div>
-    <label for="password">
-        Password
-    </label>
-    <input id="password" type="text" formControlName="password">
-  </div>
-
-  <button type="button" (click)="login()">Login</button> -->
-  <!-- <button class="button" type="submit">Send</button> -->
-<!-- </form> -->
-
-<!-- <form action="" method="post" id="form">
-    <label for="email">Email:</label>
-    <input type="text" id="email" name="email"><br><br>
-    <label for="password">Password:</label>
-    <input type="text" id="password" name="password">
-  </form> -->
-  <!-- <button type="submit" form="form" (click)="login()">Login</button><br><br> -->
-  <!-- <button type="submit" (click)="logout()">Logout</button> -->
-
-  <!-- <div class="container-fluid ps-md-0">
-  <div class="row g-0">
-    <div class="d-none d-md-flex col-md-4 col-lg-6 bg-image"></div>
-    <div class="col-md-8 col-lg-6">
-      <div class="login d-flex align-items-center py-5">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-9 col-lg-8 mx-auto">
-              <h3 class="login-heading mb-4">Welcome back!</h3>
-
-              Sign In Form
-              <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
-                <div class="form-floating mb-3">
-                  <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }"  id="inputEmail4">
-                  <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                    <div *ngIf="f.email.errors.required">Email is required</div>
-                    <div *ngIf="f.email.errors.email">Email must be a valid email address</div>
-                 </div>
-                  <label for="floatingInput">Email address</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input type="username" class="form-control" id="floatingInput" placeholder="Username" formControlName="username" class="form-control"  id="inputUsername4">
-                  <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
-                    <div *ngIf="f.username.errors.required">Username is required</div>
-                 </div>
-                  <label for="floatingInput">Username</label>
-                </div>
-                <div class="form-floating mb-3">
-                  <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password"[ngClass]="{ 'is-invalid': submitted && f.password.errors }" id="inputPassword4">
-                  <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                    <div *ngIf="f.password.errors.required">Password is required</div>
-                 </div>
-                  <label for="floatingPassword">Password</label>
-                </div>
-
-                <div class="form-check mb-3">
-                  <input class="form-check-input" type="checkbox" value="" id="rememberPasswordCheck">
-                  <label class="form-check-label" for="rememberPasswordCheck">
-                    Remember password
-                  </label>
-                </div>
-
-                <div class="d-grid">
-                  <button class="btn btn-lg btn-primary btn-login text-uppercase fw-bold mb-2" type="submit">Sign in</button>
-                  <div class="text-center">
-                    <a class="small" href="#">Forgot password?</a>
-                  </div>
-                </div>
-
-              </form>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-<app-recipe-api></app-recipe-api> -->
