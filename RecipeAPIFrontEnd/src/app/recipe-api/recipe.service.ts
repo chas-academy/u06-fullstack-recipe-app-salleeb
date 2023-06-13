@@ -11,7 +11,7 @@ export class RecipeService {
 
   appid = "72ad4883"
   appkey = "76cb1380c1d8133bd184f8e17eb9552f"
-  urlConfig = "https://api.edamam.com/api/recipes/v2"
+  urlConfig = "https://api.edamam.com/api/recipes/v2/"
   type = "public"
   httpOptions = {
     headers: new HttpHeaders({
@@ -24,40 +24,17 @@ export class RecipeService {
 
   getRecipes(q:string) {
     let searchquery = this.urlConfig + "?type=" + this.type + "&q=" + q + "&app_id=" + this.appid + "&app_key=" + this.appkey
-    // let optionFilters = new HttpParams.get()
-    return this.http.get<any>(searchquery, this.httpOptions);
+    return this.http.get<any>(searchquery, this.httpOptions)
+    .pipe(catchError(this.handleError));
   }
 
-  // getFoodId(id: string) {
-  //   let foodId = this.urlConfig + "/" + id
-  //   // let url = '/item/:id/edit'
-  //   // url.split('/').pop();
-  //   // url = foodId;
-  //   // console.log(url);
-  //   return this.http.get(foodId, this.httpOptions);
-  //   // return this.http.get(this.apiUri + id);
-  // }
-
-
-  // getFoodId(i: string) {
-  //   let foodId = this.apiUri + "_" + i;
-  //   return this.http.get<any>(foodId, this.httpOptions);
-  // }
-
-  // getFoodId(i: string) {
-  //   let id = this.apiUri + "" + i
-  //   return this.http.get<any>(i);
-  // }
-
-  // getFoodId(i:string) {
-  //   let id = this.url + i;
-  //   return this.http.get(id);
-  // }
-
-  // getPosts(id:any):Observable<any>{
-  //   const api = `http://localhost:4200/${id}`;
-  //   return this.http.get(api);
-  // }
+  getRecipeById(id: string) {
+    const recipeId = this.urlConfig + "?type=" + this.type + "&app_id=" + this.appid + "&app_key=" + this.appkey
+    console.log(recipeId);
+    return this.http.get<any>(recipeId, this.httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
 
   private handleError(error: HttpErrorResponse) {
     if (error.status === 0) {

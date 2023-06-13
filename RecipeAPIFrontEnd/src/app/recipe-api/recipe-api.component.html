@@ -1,61 +1,11 @@
-<div>
 <input type="text" placeholder="Search.." [(ngModel)]="searchquery">
 
-<select [(ngModel)]="dishType">
-    <option value="">Dish type</option>
-    <option value="starter">Starter</option>
-    <option value="main_course">Main course</option>
-    <option value="desserts">Desserts</option>
-  </select>
-
-<!-- <select [(ngModel)]="dishType">
-  <option value="" disabled selected hidden>Choose a dish type</option>
-
-<option *ngFor="let recipe of allRecipes">{{recipe.dishType}}</option>
-  
-  <option *ngIf="true" >Starter</option>
-  <option>Main course</option>
-  <option>Desserts</option>
-</select> -->
-
 <button type="button" (click)="getRecipes()">Get recipes!</button>
-</div>
 
-<!-- <form [formGroup]="" (ngSubmit)="getRecipes()">
-  <input type="text" placeholder="Search.." [(ngModel)]="searchquery">
-  <select>
-    <option value="">Dish type</option>
-    <option value="starter">Starter</option>
-    <option value="main_course">Main course</option>
-    <option value="desserts">Desserts</option>
-  </select>
-
-  <button type="submit">Search</button>
-</form> -->
-
-
-<!-- /////////////////////////////////////////////////////// -->
-
-<!-- <label for="mealTypes">Choose a meal type:</label>
-<select id="mealTypes">
-  <option value="breakfast" *ngFor="let recipe of allRecipes">{{recipe.mealType}}</option>
-</select> -->
-
-<!-- <article *ngFor="let recipe of allRecipes">
-  <h2>{{recipe.label}}</h2>
-  <img [src]="recipe.image" [alt]="recipe.label">
-  <p>Ingredient:</p>
-  <ul>
-    <li *ngFor="let ingredient of recipe.ingredientLines">
-      {{ingredient}}
-    </li>
-  </ul>
-</article> -->
-
-
-<div class="flex w-full flex-wrap"> <!-- Fixa länk! -->
-      <a  class="h-auto max-w-full w-60" *ngFor="let recipe of allRecipes" routerLinkActive="active">
-        <img class="rounded-lg" [src]="recipe.image" [alt]="recipe.label"> <!-- [routerLink]="['recipes/', getFoodId()]" -->
-      <h2>{{recipe.label}}</h2>
-      </a>
+<div class="flex w-full flex-wrap">
+  <a class="h-auto max-w-full w-60" *ngFor="let recipe of allRecipes; let i = index"
+     [routerLink]="['/recipe/', getRecipeIdFromUri(recipe.uri)]" routerLinkActive="active">
+    <img class="rounded-lg" [src]="recipe.image" [alt]="recipe.label">
+    <h2>{{ recipe.label }}</h2>
+  </a>
 </div>

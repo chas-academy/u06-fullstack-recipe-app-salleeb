@@ -34,11 +34,20 @@ export class SignupComponent {
 
   signup() {
     // console.log(this.register.value)
-    this.userService.registerUser(this.register.value).subscribe((res) => {
-      console.log("res", res);
-      this.message = "Success!";
+    if (this.register.value) {
+      this.userService.registerUser(this.register.value).subscribe((res) => {
+        console.log("res", res);
+        this.message = "Success!";
+        console.log(this.message);
+        this.router.navigate(['/login']);
+        this.message = "Success!";
+        console.log(this.message);
+      })
+    }
+    else {  // Funkar ej! Fixa!
+      this.message = "Credentials don't match. Try again!";
       console.log(this.message);
-    })
+    }
   }
 
   private handleError(error: HttpErrorResponse) {
