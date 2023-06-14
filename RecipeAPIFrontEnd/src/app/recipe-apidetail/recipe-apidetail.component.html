@@ -1,1 +1,11 @@
 <p>Hello!</p>
+
+  <img class="rounded-lg" [src]="recipe.image" [alt]="recipe.label">
+  <h2>{{ recipe.label }}</h2>
+
+  <div>
+    <ul>
+      <li *ngFor="let ing of recipeIng">{{ ing }}</li>
+      <!-- <li>{{ recipeIng }}</li> -->
+    </ul>
+  </div>

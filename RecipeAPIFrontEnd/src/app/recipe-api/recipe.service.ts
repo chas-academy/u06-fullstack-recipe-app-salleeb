@@ -29,7 +29,7 @@ export class RecipeService {
   }
 
   getRecipeById(id: string) {
-    const recipeId = this.urlConfig + "?type=" + this.type + "&app_id=" + this.appid + "&app_key=" + this.appkey
+    const recipeId = this.urlConfig + id + "?type=" + this.type + "&app_id=" + this.appid + "&app_key=" + this.appkey
     console.log(recipeId);
     return this.http.get<any>(recipeId, this.httpOptions).pipe(
       catchError(this.handleError)

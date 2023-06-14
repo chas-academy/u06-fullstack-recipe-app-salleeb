@@ -17,8 +17,6 @@ export class RecipeAPIComponent   {
 
   allRecipes: any;
 
-  recipeIds: string[] = [];
-
   constructor(private recipeService: RecipeService, private formBuilder: FormBuilder ){}
 
   getRecipes() {
@@ -32,22 +30,6 @@ export class RecipeAPIComponent   {
       console.log(recipes);
       this.allRecipes = recipes;
     })
-  }
-
-
-  getRecipeId() {
-    this.allRecipes.forEach((recipe: { uri: any; }, index: any) => {
-      let uri = recipe.uri;
-      let id = uri.split('_').pop();
-      console.log(id)
-      this.recipeService.getRecipeById(id).subscribe((result: any) => {
-          console.log(result);
-        },
-        (error) => {
-          console.error('Error fetching recipe:', error);
-        }
-      );
-    });
   }
 
   getRecipeIdFromUri(uri: string | undefined): string {
