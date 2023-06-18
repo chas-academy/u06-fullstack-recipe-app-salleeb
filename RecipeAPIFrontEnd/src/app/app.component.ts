@@ -9,16 +9,13 @@ import { UserService } from './auth/user.service';
 })
 
 export class AppComponent {
-
-//   loggedIn: boolean = false;
+  title(title: any) {
+    throw new Error('Method not implemented.');
+  }
 
   constructor(private user: UserService, private router: Router ) {
 
   }
-
-// ngOnInit(): void {
-//   this.user.
-// }
 
 logout(event: MouseEvent) {
   event.preventDefault();

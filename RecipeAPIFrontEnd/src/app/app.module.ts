@@ -9,7 +9,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RecipeAPIDetailComponent } from './recipe-apidetail/recipe-apidetail.component';
 import { NotFoundComponent } from './not-found/not-found.component';
-import { ListsComponent } from './lists/lists.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 
@@ -19,7 +18,6 @@ import { SignupComponent } from './signup/signup.component';
     RecipeAPIComponent,
     RecipeAPIDetailComponent,
     NotFoundComponent,
-    ListsComponent,
     LoginComponent,
     SignupComponent
   ],

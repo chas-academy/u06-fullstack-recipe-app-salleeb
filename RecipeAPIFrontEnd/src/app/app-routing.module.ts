@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
-import { ListsComponent } from './lists/lists.component';
 import { LoginComponent } from './login/login.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { RecipeAPIComponent } from './recipe-api/recipe-api.component';
@@ -15,7 +14,6 @@ const routes: Routes = [
     // redirectTo: '/products',
     // pathMatch: 'full'
   { path: 'recipe/:id', component: RecipeAPIDetailComponent  },
-  // { path: 'lists/:id', component:  ListsComponent }, Använda??
   { path: 'login', component: LoginComponent  },
   { path: 'login/:id', component: LoginComponent  },
   { path: 'register', component: SignupComponent  },

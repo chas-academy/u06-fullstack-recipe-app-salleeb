@@ -17,7 +17,7 @@ export class SignupComponent {
 
   message = "";
 
-  alert:boolean=false
+  alert:boolean = false;
   
   register = new FormGroup({
     name: new FormControl(''),
@@ -44,7 +44,7 @@ export class SignupComponent {
         console.log(this.message);
       })
     }
-    else {  // Funkar ej! Fixa!
+    else {
       this.message = "Credentials don't match. Try again!";
       console.log(this.message);
     }

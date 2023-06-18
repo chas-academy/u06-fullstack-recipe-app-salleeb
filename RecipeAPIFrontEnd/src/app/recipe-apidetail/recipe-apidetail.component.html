@@ -1,11 +1,19 @@
-<p>Hello!</p>
+<h2>{{ recipe.label }}</h2>
+<img class="rounded-lg" [src]="recipe.image" [alt]="recipe.label">
 
-  <img class="rounded-lg" [src]="recipe.image" [alt]="recipe.label">
-  <h2>{{ recipe.label }}</h2>
+<div>
+  <ul>
+    <li *ngFor="let ingredient of recipe.ingredients">
+      {{ ingredient.text }} - {{ ingredient.quantity }} {{ ingredient.measure }}
+      <div>
+        <img [src]="ingredient.image" alt="ingredient.text">
+      </div>
+    </li>
+  </ul>
 
-  <div>
-    <ul>
-      <li *ngFor="let ing of recipeIng">{{ ing }}</li>
-      <!-- <li>{{ recipeIng }}</li> -->
-    </ul>
-  </div>
+  <ol>
+    <li *ngFor="let ingredientLines of recipe.ingredientLines">
+      {{ ingredientLines }}
+    </li>
+  </ol>
+</div>

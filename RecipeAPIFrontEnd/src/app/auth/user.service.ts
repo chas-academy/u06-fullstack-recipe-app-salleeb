@@ -4,8 +4,6 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { User } from '../user';
-
 @Injectable({
   providedIn: 'root'
 })
@@ -22,12 +20,6 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  // loginUser(user: User) {
-  //   console.log(localStorage.getItem("token"), user);
-  //   this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'Bearer ' + localStorage.getItem("token"));
-  //   return this.http.get<User[]>(this.configUrl + 'login', this.httpOptions).pipe(catchError(this.handleError));
-  // }
-
   loginUser(user: any) {
     return this.http.post<any>(this.configUrl + "login", user, this.httpOptions)
     .pipe(catchError(this.handleError))
@@ -36,13 +28,6 @@ export class UserService {
       localStorage.setItem("token", res.token);
     })
   }
-
-  // getUser2(user: any) {
-  //   console.log(localStorage.getItem("token"));
-  //   localStorage.getItem("token");
-  //   return this.http.post<any>(this.configUrl + 'login' + user, this.httpOptions)
-  //   .pipe(catchError(this.handleError));
-  // }
 
   registerUser(user: any) {
     return this.http.post(this.configUrl + "register", user)
@@ -64,27 +49,3 @@ export class UserService {
   }
   
 }
-
-  // signupUser() {
-  //   // console.log(this.register.value)
-  //   this.userService.registerUser(this.register.value).subscribe((res) => {
-  //     console.log("res", res)
-  //   })
-  // }
-
-  // loginUser(user: User) {
-  //   this.http.get<User[]>(this.configUrl + "login", this.httpOptions)
-  //   .pipe(catchError(this.handleError))
-  //     .subscribe((res) => {
-  //       console.log(res);
-  //     })
-
-    //   console.log(localStorage.getItem("token"));
-    // this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'Bearer ' + localStorage.getItem("token"));
-    // return this.http.get<User[]>(this.configUrl + 'getuser/2', this.httpOptions).pipe(catchError(this.handleError));
-
-  // getUser2() {
-  //   console.log(localStorage.getItem("token"));
-  //   this.httpOptions.headers = this.httpOptions.headers.set('Authorization', 'Bearer ' + localStorage.getItem("token"));
-  //   return this.http.get<User[]>(this.configUrl + 'getuser/2', this.httpOptions).pipe(catchError(this.handleError));
-  // }

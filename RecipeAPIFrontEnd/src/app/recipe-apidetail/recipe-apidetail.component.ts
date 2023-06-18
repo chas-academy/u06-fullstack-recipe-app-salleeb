@@ -9,14 +9,11 @@ import { RecipeService } from '../recipe-api/recipe.service';
 })
 
 export class RecipeAPIDetailComponent {
-
   recipeId: string | null | undefined;
 
   allRecipes: any;
 
   recipe: any;
-
-  recipeIng: any;
 
   constructor(private recipeService:RecipeService, private activatedRoute: ActivatedRoute ) {}
 
@@ -28,7 +25,7 @@ export class RecipeAPIDetailComponent {
 
   fetchRecipeData() {
     if (!this.recipeId) {
-      console.log('Recipe ID is empty.');
+      console.log('Recipe ID is empty');
       return;
     }
   
@@ -40,8 +37,6 @@ export class RecipeAPIDetailComponent {
       let recipeDetails = Object.values(this.allRecipes).map((res: any) => res)
       this.recipe = recipeDetails[0];
       console.log(this.recipe);
-
     });
-  
   }
 }

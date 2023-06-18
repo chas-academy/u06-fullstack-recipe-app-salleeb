@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
-
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -9,8 +8,8 @@ import { catchError } from 'rxjs/operators';
 })
 export class RecipeService {
 
-  appid = "72ad4883"
-  appkey = "76cb1380c1d8133bd184f8e17eb9552f"
+  appid = "72ad4883";
+  appkey = "76cb1380c1d8133bd184f8e17eb9552f";
   urlConfig = "https://api.edamam.com/api/recipes/v2/"
   type = "public"
   httpOptions = {
@@ -19,11 +18,20 @@ export class RecipeService {
       'Accept-Language': 'en'
     })
   }
-
   constructor(private http:HttpClient) { }
 
-  getRecipes(q:string) {
-    let searchquery = this.urlConfig + "?type=" + this.type + "&q=" + q + "&app_id=" + this.appid + "&app_key=" + this.appkey
+  getRecipes(q: string, mealType: string, health: string) {
+    let searchquery = this.urlConfig + "?type=" + this.type + "&q=" + q + "&app_id=" + this.appid + "&app_key=" + this.appkey;
+    
+    if (health) {
+      searchquery += "&health=" + health;
+    }
+
+    if (mealType) {
+      searchquery += "&mealType=" + mealType;
+    }
+  
+    console.log(searchquery, this.httpOptions)
     return this.http.get<any>(searchquery, this.httpOptions)
     .pipe(catchError(this.handleError));
   }
