@@ -11,14 +11,10 @@ import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
   { path: '', component: RecipeAPIComponent },
-    // redirectTo: '/products',
-    // pathMatch: 'full'
   { path: 'recipe/:id', component: RecipeAPIDetailComponent  },
   { path: 'login', component: LoginComponent  },
   { path: 'login/:id', component: LoginComponent  },
   { path: 'register', component: SignupComponent  },
-    // canActivate: [ExampleGuard],
-// { path: 'login/:id/logout', component: AppComponent },
   { path: '**', component: NotFoundComponent, data: { title : 'Oops' }  }
 ];
 

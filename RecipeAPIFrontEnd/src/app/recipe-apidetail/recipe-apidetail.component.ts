@@ -15,7 +15,7 @@ export class RecipeAPIDetailComponent {
 
   recipe: any;
 
-  constructor(private recipeService:RecipeService, private activatedRoute: ActivatedRoute ) {}
+  constructor(private recipeService: RecipeService, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.recipeId = this.activatedRoute.snapshot.paramMap.get('id');
@@ -28,12 +28,12 @@ export class RecipeAPIDetailComponent {
       console.log('Recipe ID is empty');
       return;
     }
-  
+
     this.recipeService.getRecipeById(this.recipeId).subscribe((result: any) => {
       this.allRecipes = result;
       console.log('Recipe:', this.allRecipes);
-    
-    
+
+
       let recipeDetails = Object.values(this.allRecipes).map((res: any) => res)
       this.recipe = recipeDetails[0];
       console.log(this.recipe);

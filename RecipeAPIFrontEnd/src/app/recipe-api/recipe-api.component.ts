@@ -5,10 +5,20 @@ import { RecipeService } from './recipe.service';
 @Component({
   selector: 'app-recipe-api',
   templateUrl: './recipe-api.component.html',
-  styleUrls: ['./recipe-api.component.scss']
+  styleUrls: ['./recipe-api.component.scss'],
+  template:
+    `<div class="flex w-full flex-wrap">
+      <a class="h-auto max-w-full w-60" *ngFor="let recipe of allRecipes; let i = index"
+      [routerLink]="['/recipe/', getRecipeIdFromUri(recipe.uri)]" routerLinkActive="active">
+        <img class="rounded-lg" [src]="recipe.image" [alt]="recipe.label">
+        <h2>{{ recipe.label }}</h2>
+      </a>
+    </div>`
 })
 export class RecipeAPIComponent   {
   title = 'RecipeAPISearch';
+
+  defaultRecipes = "midsummer";
 
   searchquery = "";
 
@@ -35,6 +45,19 @@ export class RecipeAPIComponent   {
   egg = "egg-free";
 
   constructor(private recipeService: RecipeService, private formBuilder: FormBuilder ){}
+
+  ngOnInit() {
+    this.recipeService.getRecipes(this.defaultRecipes, "", "").subscribe((result: any) => {
+      let recipes = result.hits.map((data: any) => {
+        let recipe = data.recipe;
+        recipe.selfref = data._links.self.href;
+        return recipe;
+      })
+      console.log(result.hits[0]);
+      console.log(recipes);
+      this.allRecipes = recipes;
+    })
+  }
 
   getRecipes() {
     this.recipeService.getRecipes(this.searchquery, this.mealType, this.health).subscribe((result: any) => {
