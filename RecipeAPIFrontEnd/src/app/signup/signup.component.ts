@@ -35,18 +35,14 @@ export class SignupComponent {
   signup() {
     if (this.register.value) {
       this.userService.registerUser(this.register.value).subscribe((res) => {
-        console.log("res", res);
         this.message = "Success!";
-        console.log(this.message);
         this.router.navigate(['/login']);
         this.message = "Success!";
-        console.log(this.message);
       })
     }
     else {
       this.message = "Credentials don't match. Try again!";
       alert(this.message);
-      console.log(this.message);
     }
   }
 

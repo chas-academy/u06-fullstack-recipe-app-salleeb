@@ -54,8 +54,6 @@ export class RecipeAPIComponent   {
         recipe.selfref = data._links.self.href;
         return recipe;
       })
-      console.log(result.hits[0]);
-      console.log(recipes);
       this.allRecipes = recipes;
     })
   }
@@ -67,8 +65,6 @@ export class RecipeAPIComponent   {
         recipe.selfref = data._links.self.href;
         return recipe;
       })
-      console.log(result.hits[0]);
-      console.log(recipes);
       this.allRecipes = recipes;
     })
   }

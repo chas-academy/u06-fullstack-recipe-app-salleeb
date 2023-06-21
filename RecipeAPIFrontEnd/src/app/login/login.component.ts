@@ -35,9 +35,7 @@ export class LoginComponent {
         .subscribe(
           (res) => {
             localStorage.setItem("token", res.token);
-            this.message = 'Success!';
-            console.log(this.message);
-  
+
             let login = document.getElementById('login-link');
             let logout = document.getElementById('logout-link');
   
@@ -53,13 +51,11 @@ export class LoginComponent {
           },
           (error) => {
             this.message = "Credentials don't match. Try again!";
-            console.log(this.message);
             alert(this.message);
           }
         );
     } else {
       this.message = "Credentials don't match. Try again!";
-      console.log(this.message);
     }
   }
 }

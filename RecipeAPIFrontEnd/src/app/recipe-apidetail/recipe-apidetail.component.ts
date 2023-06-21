@@ -19,24 +19,19 @@ export class RecipeAPIDetailComponent {
 
   ngOnInit() {
     this.recipeId = this.activatedRoute.snapshot.paramMap.get('id');
-    console.log('Recipe ID:', this.recipeId);
     this.fetchRecipeData();
   }
 
   fetchRecipeData() {
     if (!this.recipeId) {
-      console.log('Recipe ID is empty');
       return;
     }
 
     this.recipeService.getRecipeById(this.recipeId).subscribe((result: any) => {
       this.allRecipes = result;
-      console.log('Recipe:', this.allRecipes);
-
 
       let recipeDetails = Object.values(this.allRecipes).map((res: any) => res)
       this.recipe = recipeDetails[0];
-      console.log(this.recipe);
     });
   }
 }

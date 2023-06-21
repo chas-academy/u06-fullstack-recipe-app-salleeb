@@ -30,15 +30,13 @@ export class RecipeService {
     if (mealType) {
       searchquery += "&mealType=" + mealType;
     }
-  
-    console.log(searchquery, this.httpOptions)
+
     return this.http.get<any>(searchquery, this.httpOptions)
     .pipe(catchError(this.handleError));
   }
 
   getRecipeById(id: string) {
-    const recipeId = this.urlConfig + id + "?type=" + this.type + "&app_id=" + this.appid + "&app_key=" + this.appkey
-    console.log(recipeId);
+    const recipeId = this.urlConfig + id + "?type=" + this.type + "&app_id=" + this.appid + "&app_key=" + this.appkey;
     return this.http.get<any>(recipeId, this.httpOptions).pipe(
       catchError(this.handleError)
     );
