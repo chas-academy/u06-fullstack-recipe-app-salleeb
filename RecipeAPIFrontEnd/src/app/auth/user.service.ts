@@ -11,7 +11,7 @@ export class UserService {
 
   message = "";
 
-  configUrl = "http://127.0.0.1:8000/api/";
+  configUrl = "https://649388b6ea2a302bfe78556e--harmonious-hotteok-f8a08e.netlify.app/";
 
   httpOptions = {
     headers: new HttpHeaders({
