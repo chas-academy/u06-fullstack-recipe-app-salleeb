@@ -34,6 +34,7 @@ export class LoginComponent {
       this.userService.loginUser(credentials)
         .subscribe(
           (res) => {
+            localStorage.setItem("token", res.token);
             this.message = 'Success!';
             console.log(this.message);
   
