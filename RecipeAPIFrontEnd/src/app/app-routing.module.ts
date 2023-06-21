@@ -13,7 +13,6 @@ const routes: Routes = [
   { path: '', component: RecipeAPIComponent },
   { path: 'recipe/:id', component: RecipeAPIDetailComponent  },
   { path: 'login', component: LoginComponent  },
-  { path: 'login/:id', component: LoginComponent  },
   { path: 'register', component: SignupComponent  },
   { path: '**', component: NotFoundComponent, data: { title : 'Oops' }  }
 ];

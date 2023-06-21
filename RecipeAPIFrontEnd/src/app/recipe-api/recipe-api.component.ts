@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { RecipeService } from './recipe.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-recipe-api',
@@ -44,7 +45,7 @@ export class RecipeAPIComponent   {
   peanut = "peanut-free";
   egg = "egg-free";
 
-  constructor(private recipeService: RecipeService, private formBuilder: FormBuilder ){}
+  constructor(private recipeService: RecipeService, private formBuilder: FormBuilder, private activatedRoute: ActivatedRoute ){}
 
   ngOnInit() {
     this.recipeService.getRecipes(this.defaultRecipes, "", "").subscribe((result: any) => {

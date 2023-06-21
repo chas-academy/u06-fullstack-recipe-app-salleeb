@@ -24,9 +24,9 @@
 
 <button type="button" (click)="getRecipes()">Get recipes!</button>
 
-<div class="flex w-full flex-wrap">
+<div class="flex w-full flex-wrap justify-center">
   <a class="h-auto max-w-full w-60" *ngFor="let recipe of allRecipes; let i = index"
-     [routerLink]="['/recipe/', getRecipeIdFromUri(recipe.uri)]" routerLinkActive="active">
+     [routerLink]="['/recipe/', getRecipeIdFromUri(recipe.uri)]" routerLinkActive="active" class="m-4">
     <img class="rounded-lg" [src]="recipe.image" [alt]="recipe.label">
     <h2>{{ recipe.label }}</h2>
   </a>

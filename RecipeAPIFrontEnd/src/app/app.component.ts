@@ -13,14 +13,12 @@ export class AppComponent {
     throw new Error('Method not implemented.');
   }
 
-  constructor(private user: UserService, private router: Router ) {
+  constructor(private user: UserService, private router: Router ) {}
 
+  logout(event: MouseEvent) {
+    event.preventDefault();
+    window.location.reload();
+    return localStorage.removeItem("token");
   }
-
-logout(event: MouseEvent) {
-  event.preventDefault();
-  this.router.navigate(['/login']);
-  return localStorage.removeItem("token");
-}
 
 }

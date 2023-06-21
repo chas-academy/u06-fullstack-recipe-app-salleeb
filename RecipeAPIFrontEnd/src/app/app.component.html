@@ -1,8 +1,16 @@
-<a routerLink="/" routerLinkActive="active">Home</a>
-<a routerLink="/login" routerLinkActive="active">Login</a>
-<a routerLink="/register" routerLinkActive="active">Signup</a>
-<a href="#" (click)="logout($event)">Logout</a>
+<div class="w-full flex flex-wrap justify-evenly py-1.5 bg-purple-100 top-0 text-gray-900">
+    <div>
+        <a routerLink="/" routerLinkActive="active">Home</a>
+    </div>
+    <div>
+        <a routerLink="/register" routerLinkActive="active">Signup</a>
+    </div>
+    <div id="login-link">    
+        <a routerLink="/login" routerLinkActive="active">Login</a>
+    </div>
+    <div id="logout-link" class="hidden">
+        <a href="#" (click)="logout($event)">Logout</a>
+    </div>
+</div>
 <br><br>
-
-<!-- <h1>{{user.name}}</h1> -->
 <router-outlet></router-outlet>

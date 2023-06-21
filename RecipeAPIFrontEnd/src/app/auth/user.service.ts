@@ -8,6 +8,7 @@ import { catchError } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class UserService {
+  [x: string]: any;
 
   configUrl = "http://127.0.0.1:8000/api/";
 
