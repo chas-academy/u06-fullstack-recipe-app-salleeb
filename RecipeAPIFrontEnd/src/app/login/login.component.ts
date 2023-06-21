@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { UserService } from '../auth/user.service';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,32 +10,53 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
   user: any;
-  message = "";
+  message = '';
   @Input() elementId!: string;
 
-  constructor(private userService: UserService, private formBuilder: FormBuilder, private router: Router) {}
+  constructor(
+    private userService: UserService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {}
 
   loginForm = this.formBuilder.group({
-    email: this.formBuilder.control(''),
-    password: this.formBuilder.control(''),
-  })
+    email: ['', [Validators.required]],
+    password: ['', [Validators.required]]
+  });
 
   login() {
-    let login = document.getElementById("login-link");
-    let logout = document.getElementById("logout-link");
-
     if (this.loginForm.valid) {
-      this.userService.loginUser(this.loginForm.value);
-      this.router.navigate(['']);
-      this.message = "Success!";
-      console.log(this.message);
-
-      if (login !== null) {
-        login.style.display = "none";
-        logout!.style.display = "block";
-      }
-    }
-    else {
+      const credentials = {
+        email: this.loginForm.value.email,
+        password: this.loginForm.value.password
+      };
+  
+      this.userService.loginUser(credentials)
+        .subscribe(
+          (res) => {
+            this.message = 'Success!';
+            console.log(this.message);
+  
+            let login = document.getElementById('login-link');
+            let logout = document.getElementById('logout-link');
+  
+            if (login) {
+              login.style.display = 'none';
+            }
+  
+            if (logout) {
+              logout.style.display = 'block';
+            }
+  
+            this.router.navigate(['/']);
+          },
+          (error) => {
+            this.message = "Credentials don't match. Try again!";
+            console.log(this.message);
+            alert(this.message);
+          }
+        );
+    } else {
       this.message = "Credentials don't match. Try again!";
       console.log(this.message);
     }

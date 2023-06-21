@@ -1,16 +1,15 @@
-<div class="w-full flex flex-wrap justify-evenly py-1.5 bg-purple-100 top-0 text-gray-900">
+<div class="w-full flex flex-wrap justify-evenly py-1.5 bg-purple-100 top-0 text-slate-950 mb-4 text-purple-900">
     <div>
-        <a routerLink="/" routerLinkActive="active">Home</a>
+        <a class="hover:bg-purple-900 hover:px-4 hover:py-2 hover:rounded-lg hover:text-white" routerLink="/" routerLinkActive="active">Home</a>
     </div>
     <div>
-        <a routerLink="/register" routerLinkActive="active">Signup</a>
+        <a class="hover:bg-purple-900 hover:px-4 hover:py-2 hover:rounded-lg hover:text-white" routerLink="/register" routerLinkActive="active">Signup</a>
     </div>
     <div id="login-link">    
-        <a routerLink="/login" routerLinkActive="active">Login</a>
+        <a class="hover:bg-purple-900 hover:px-4 hover:py-2 hover:rounded-lg hover:text-white" routerLink="/login" routerLinkActive="active">Login</a>
     </div>
     <div id="logout-link" class="hidden">
-        <a href="#" (click)="logout($event)">Logout</a>
+        <a class="hover:bg-purple-900 hover:px-4 hover:py-2 hover:rounded-lg hover:text-white" href="#" (click)="logout($event)">Logout</a>
     </div>
 </div>
-<br><br>
 <router-outlet></router-outlet>

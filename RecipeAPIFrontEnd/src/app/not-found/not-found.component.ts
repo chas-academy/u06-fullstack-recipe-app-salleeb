@@ -15,7 +15,7 @@ export class NotFoundComponent implements OnInit {
   }
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(data => {
-      this.title=data['title'];
+      this.title = data['title'];
     })
   }
 

@@ -1,12 +1,15 @@
-<form [formGroup]="loginForm" (ngSubmit)="login()">
-  <label for="email">Email</label><br>
-  <input type="text" name="email" formControlName="email"><br>
-  <label for="password">Password</label><br>
-  <input type="password" name="password" formControlName="password"><br>
-  <button type="submit">Login</button>
-</form>
-
-<div>
-  <p>Don't have an account?</p>
-      <button [routerLink]="['/register']">Sign up</button>
+<div class="bg-white w-fit mx-auto p-10 m-10 rounded-lg shadow-lg text-slate-950">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <label for="email">Email:</label><br>
+    <input class="border-solid border-2 rounded-lg m-2 p-1" type="email" name="email" formControlName="email" placeholder="Enter your email..." required><br>
+    <label for="password">Password:</label><br>
+    <input class="border-solid border-2 rounded-lg m-2 p-1" type="password" name="password" formControlName="password" placeholder="Enter your password..." required><br>
+    <button class="bg-violet-400 text-white m-4 px-4 py-2 rounded-lg m-1 shadow-lg" type="submit">Login</button>
+  </form>
+  
+  <div class="mt-4 text-sm">
+    <p>Don't have an account?
+      <a class="underline" [routerLink]="['/register']">Sign up</a>
+    </p>
   </div>
+</div>

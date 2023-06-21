@@ -1,19 +1,32 @@
-<h2>{{ recipe.label }}</h2>
-<img class="rounded-lg" [src]="recipe.image" [alt]="recipe.label">
-
-<div>
+<div class="bg-white w-fit mx-auto px-20 py-5 m-2 rounded-lg shadow-lg">
+  <h2 class="text-center text-2xl text-purple-900 italic">{{ recipe.label }}</h2>
+<img class="rounded-lg flex mx-auto m-8" [src]="recipe.image" [alt]="recipe.label">
   <ul>
-    <li *ngFor="let ingredient of recipe.ingredients">
-      {{ ingredient.text }} - {{ ingredient.quantity }} {{ ingredient.measure }}
-      <div>
-        <img [src]="ingredient.image" alt="ingredient.text">
-      </div>
-    </li>
-  </ul>
-
-  <ol>
-    <li *ngFor="let ingredientLines of recipe.ingredientLines">
+    <li class="list-decimal text-left" *ngFor="let ingredientLines of recipe.ingredientLines">
       {{ ingredientLines }}
     </li>
-  </ol>
+  </ul>
 </div>
+
+<div class="flex justify-center m-2 p-1 mx-auto w-fit bg-white rounded-lg shadow-lg">
+  <ul class="flex flex-col flex-wrap">
+    <li class="flex items-center m-2" *ngFor="let ingredient of recipe.ingredients">
+      <div class="flex">
+        <img class="w-40 rounded-lg" [src]="ingredient.image" alt="ingredient.text">
+      </div>
+      <p class="mx-4">
+        {{ ingredient.text }}
+        <!-- {{ ingredient.quantity }} {{ ingredient.measure }} class="max-w-3xl:w-10" -->
+      </p>
+    </li>
+  </ul>
+</div>
+
+<!-- <div>
+  <ul>
+    <li *ngFor="let nutrient of recipe.totalNutrients | keyvalue">
+      <p>{{ nutrient.value }}: {{ nutrient.value.quantity }} {{ nutrient.value.unit }}</p>
+      <p>{{ nutrient.value }}: {{ nutrient.value.quantity }} {{ nutrient.value.unit }}</p>
+    </li>
+  </ul>
+</div> -->

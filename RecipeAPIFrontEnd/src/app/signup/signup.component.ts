@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserService } from '../auth/user.service';
 import { Router } from '@angular/router';
 
@@ -20,10 +20,10 @@ export class SignupComponent {
   alert:boolean = false;
   
   register = new FormGroup({
-    name: new FormControl(''),
-    email: new FormControl(''),
-    password: new FormControl(''),
-    password_confirmation: new FormControl(''),
+    name: new FormControl('', Validators.compose([Validators.required])),
+    email: new FormControl('', Validators.compose([Validators.required])),
+    password: new FormControl('', Validators.compose([Validators.required, Validators.minLength(3)])),
+    password_confirmation: new FormControl('', Validators.compose([Validators.required, Validators.minLength(3)])),
   })
 
   constructor(private userService: UserService, private router: Router) { }
@@ -33,7 +33,6 @@ export class SignupComponent {
   }
 
   signup() {
-    // console.log(this.register.value)
     if (this.register.value) {
       this.userService.registerUser(this.register.value).subscribe((res) => {
         console.log("res", res);
@@ -46,6 +45,7 @@ export class SignupComponent {
     }
     else {
       this.message = "Credentials don't match. Try again!";
+      alert(this.message);
       console.log(this.message);
     }
   }

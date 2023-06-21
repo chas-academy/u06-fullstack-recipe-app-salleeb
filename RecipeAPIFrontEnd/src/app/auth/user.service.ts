@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
-
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
@@ -9,6 +8,8 @@ import { catchError } from 'rxjs/operators';
 })
 export class UserService {
   [x: string]: any;
+
+  message = "";
 
   configUrl = "http://127.0.0.1:8000/api/";
 
@@ -21,18 +22,18 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  loginUser(user: any) {
-    return this.http.post<any>(this.configUrl + "login", user, this.httpOptions)
-    .pipe(catchError(this.handleError))
-    .subscribe(res => {
-      console.log(res)
-      localStorage.setItem("token", res.token);
-    })
+  loginUser(user: any): Observable<any> {
+    return this.http.post<any>(this.configUrl + 'login', user, this.httpOptions)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
-  registerUser(user: any) {
-    return this.http.post(this.configUrl + "register", user)
-    .pipe(catchError(this.handleError));
+  registerUser(user: any): Observable<any> {
+    return this.http.post<any>(this.configUrl + 'register', user)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
 
   private handleError(error: HttpErrorResponse) {
@@ -48,5 +49,4 @@ export class UserService {
     // Return an observable with a user-facing error message.
     return throwError(() => new Error('Something bad happened; please try again later.'));
   }
-  
 }

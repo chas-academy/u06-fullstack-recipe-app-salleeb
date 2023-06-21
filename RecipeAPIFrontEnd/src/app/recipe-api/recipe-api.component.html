@@ -1,33 +1,35 @@
-<input type="text" placeholder="Search.." [(ngModel)]="searchquery">
+<div class="m-2">
+  <select class="p-2 rounded-lg m-1" name="mealType" id="mealType" [(ngModel)]="mealType">
+    <option value="" disabled>Meal type</option>
+    <option [value]="breakfast">Breakfast</option>
+    <option [value]="brunch">Brunch</option>
+    <option [value]="lunch">Lunch</option>
+    <option [value]="dinner">Dinner</option>
+    <option [value]="desserts">Dessert</option>
+    <option [value]="snack">Snack</option>
+    <option [value]="teatime">Teatime</option>
+  </select>
 
-<select name="mealType" id="mealType" [(ngModel)]="mealType">
-  <option value="" disabled>Meal type</option>
-  <option [value]="breakfast">Breakfast</option>
-  <option [value]="brunch">Brunch</option>
-  <option [value]="lunch">Lunch</option>
-  <option [value]="dinner">Dinner</option>
-  <option [value]="desserts">Dessert</option>
-  <option [value]="snack">Snack</option>
-  <option [value]="teatime">Teatime</option>
-</select>
+  <select class="p-2 rounded-lg m-1" name="health" id="health" [(ngModel)]="health">
+    <option value="" disabled>Dietary restictions</option>
+    <option [value]="vegetarian">Vegetarian</option>
+    <option [value]="vegan">Vegan</option>
+    <option [value]="dairy">Dairy-Free</option>
+    <option [value]="gluten">Gluten-Free</option>
+    <option [value]="treeNut">Tree Nut-Free</option>
+    <option [value]="peanut">Peanut-Free</option>
+    <option [value]="egg">Egg-Free</option>
+  </select>
 
-<select name="health" id="health" [(ngModel)]="health">
-  <option value="" disabled>Dietary restictions</option>
-  <option [value]="vegetarian">Vegetarian</option>
-  <option [value]="vegan">Vegan</option>
-  <option [value]="dairy">Dairy-Free</option>
-  <option [value]="gluten">Gluten-Free</option>
-  <option [value]="treeNut">Tree Nut-Free</option>
-  <option [value]="peanut">Peanut-Free</option>
-  <option [value]="egg">Egg-Free</option>
-</select>
+  <input class="p-2 rounded-lg m-1" type="text" placeholder="Search.." [(ngModel)]="searchquery">
 
-<button type="button" (click)="getRecipes()">Get recipes!</button>
+  <button class="p-2 rounded-lg m-1 bg-violet-400 text-white hover:bg-purple-900" type="button" (click)="getRecipes()">Search</button>
+</div>
 
 <div class="flex w-full flex-wrap justify-center">
-  <a class="h-auto max-w-full w-60" *ngFor="let recipe of allRecipes; let i = index"
-     [routerLink]="['/recipe/', getRecipeIdFromUri(recipe.uri)]" routerLinkActive="active" class="m-4">
-    <img class="rounded-lg" [src]="recipe.image" [alt]="recipe.label">
-    <h2>{{ recipe.label }}</h2>
+  <a class="h-auto max-w-full w-60 m-2" *ngFor="let recipe of allRecipes; let i = index"
+    [routerLink]="['/recipe/', getRecipeIdFromUri(recipe.uri)]" routerLinkActive="active">
+    <img class="rounded-lg mx-auto shadow-lg" [src]="recipe.image" [alt]="recipe.label">
+    <h2 class="bg-white text-slate-950 rounded-lg p-2 mt-2 shadow-lg hover:bg-purple-900 hover:text-white">{{ recipe.label }}</h2>
   </a>
 </div>

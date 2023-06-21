@@ -1,16 +1,19 @@
-<form [formGroup]="register" (ngSubmit)="signup()">
-  <label for="name">Name</label><br>
-  <input type="text" name="name" formControlName="name"><br>
-  <label for="email">Email</label><br>
-  <input type="text" name="email" formControlName="email"><br>
-  <label for="password">Password</label><br>
-  <input type="password" name="password" formControlName="password"><br>
-  <label for="confirmPassword">Confirm password</label><br>
-  <input type="password" name="password_confirmation" formControlName="password_confirmation"><br>
-  <button type="submit">Register</button>
-</form>
-
-<div>
-<p>Already have an account?</p>
-    <button [routerLink]="['/login']">Login</button>
+<div class="bg-white w-fit mx-auto p-10 m-10 rounded-lg shadow-lg text-slate-950">
+  <form [formGroup]="register" (ngSubmit)="signup()">
+    <label for="name">Name:</label><br>
+    <input class="border-solid border-2 rounded-lg m-2 p-1" type="text" name="name" formControlName="name" placeholder="Enter your name..." required><br>
+    <label for="email">Email:</label><br>
+    <input class="border-solid border-2 rounded-lg m-2 p-1" type="text" name="email" formControlName="email" placeholder="Enter your email..." required><br>
+    <label for="password">Password:</label><br>
+    <input class="border-solid border-2 rounded-lg m-2 p-1" type="password" name="password" formControlName="password" placeholder="Choose a password..." required><br>
+    <label for="confirmPassword">Confirm password:</label><br>
+    <input class="border-solid border-2 rounded-lg m-2 p-1" type="password" name="password_confirmation" formControlName="password_confirmation" placeholder="Confirm password..." required><br>
+    <button class="bg-violet-400 text-white m-4 px-4 py-2 rounded-lg m-1 shadow-lg" type="submit">Register</button>
+  </form>
+  
+  <div class="mt-4 text-sm">
+  <p>Already have an account?
+    <a class="underline" [routerLink]="['/login']">Login</a>
+  </p>
+  </div>
 </div>
